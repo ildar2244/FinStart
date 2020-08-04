@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/menu_quotes"
+        android:enabled="true"
+        android:icon="@drawable/ic_trending"
+        android:title="Курсы" />
+    <item
+        android:id="@+id/menu_portfolio"
+        android:enabled="true"
+        android:icon="@drawable/ic_portfolio"
+        android:title="Портфель" />
+    <item
+        android:id="@+id/menu_operation"
+        android:enabled="true"
+        android:icon="@drawable/ic_operation"
+        android:title="Сделки" />
+    <item
+        android:id="@+id/menu_ideas"
+        android:enabled="true"
+        android:icon="@drawable/ic_investidea"
+        android:title="Идеи" />
+</menu>
