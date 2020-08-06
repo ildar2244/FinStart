@@ -3,7 +3,7 @@
     package="ru.axdar.login">
 
     <application>
-        <activity android:name=".LoginActivity"></activity>
+
     </application>
 
 </manifest>

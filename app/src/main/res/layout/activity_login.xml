@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".LoginActivity">
+    tools:context=".login.LoginActivity">
 
     <TextView
         android:id="@+id/tv_app_logo"
@@ -20,14 +20,13 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/et_login"
-        android:layout_width="match_parent"
+        android:id="@+id/et_email"
+        android:layout_width="0dp"
         android:layout_height="32dp"
-        android:layout_marginStart="48dp"
         android:layout_marginTop="16dp"
-        android:layout_marginEnd="48dp"
+        app:layout_constraintWidth_percent="0.7"
         android:background="@drawable/background_edittext_stroke_primary"
-        android:hint="Login"
+        android:hint="Email"
         android:paddingStart="8dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -38,38 +37,61 @@
         android:layout_width="0dp"
         android:layout_height="32dp"
         android:layout_marginTop="16dp"
+        app:layout_constraintWidth_percent="0.7"
         android:background="@drawable/background_edittext_stroke_primary"
         android:hint="Password"
         android:paddingStart="8dp"
-        app:layout_constraintEnd_toEndOf="@id/et_login"
-        app:layout_constraintStart_toStartOf="@id/et_login"
-        app:layout_constraintTop_toBottomOf="@id/et_login" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/et_email" />
+
+    <Button
+        android:id="@+id/btn_enter"
+        android:layout_width="0dp"
+        android:layout_height="32dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/background_button_solid_primary"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp"
+        android:text="Войти"
+        android:textAllCaps="false"
+        android:textColor="@android:color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/et_password"
+        app:layout_constraintWidth_percent=".5" />
 
     <Button
         android:id="@+id/btn_registration"
         android:layout_width="0dp"
         android:layout_height="32dp"
-        android:layout_marginTop="16dp"
-        android:background="@drawable/background_button_solid_primary"
+        android:layout_marginTop="48dp"
+        android:background="@drawable/background_button_stroke_primary"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp"
         android:text="Регистрация"
         android:textAllCaps="false"
-        android:textColor="@android:color/white"
-        app:layout_constraintEnd_toEndOf="@id/et_login"
-        app:layout_constraintStart_toStartOf="@id/et_login"
-        app:layout_constraintTop_toBottomOf="@id/et_password" />
+        android:textColor="@color/colorPrimary"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btn_enter"
+        app:layout_constraintWidth_percent=".5" />
 
     <Button
         android:id="@+id/btn_no_registration"
         android:layout_width="0dp"
         android:layout_height="32dp"
         android:layout_marginTop="16dp"
-        android:background="@drawable/background_button_solid_primary"
+        android:background="@drawable/background_button_stroke_primary"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp"
         android:text="Без регистрации"
         android:textAllCaps="false"
-        android:textColor="@android:color/white"
-        app:layout_constraintEnd_toEndOf="@id/et_login"
-        app:layout_constraintStart_toStartOf="@id/et_login"
-        app:layout_constraintTop_toBottomOf="@id/btn_registration" />
+        android:textColor="@color/colorPrimary"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btn_registration"
+        app:layout_constraintWidth_percent=".5" />
 
     <TextView
         android:id="@+id/tv_demo"

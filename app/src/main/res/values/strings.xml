@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">FinStart</string>
+
+    <string name="register_view_title">Регистрация</string>
 </resources>
