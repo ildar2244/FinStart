@@ -1,7 +1,8 @@
 package ru.axdar.finstart.login
 
-interface ILoginView {
+interface IAuthView {
 
     fun setListeners()
     fun showToast(message: String)
+    fun replaceToRegistrationFragment()
 }

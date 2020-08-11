@@ -1,39 +1,40 @@
 package ru.axdar.finstart.login
 
-import androidx.appcompat.app.AppCompatActivity
+import android.content.Intent
 import android.os.Bundle
-import android.widget.Toast
-import kotlinx.android.synthetic.main.activity_login.*
+import androidx.appcompat.app.AppCompatActivity
+import ru.axdar.finstart.MainActivity
 import ru.axdar.finstart.R
-import ru.axdar.finstart.utilits.EditTextWatcher
 
-class LoginActivity : AppCompatActivity(), ILoginView {
-    private lateinit var presenter: ILoginPresenter
+class LoginActivity : AppCompatActivity() {
+
+    //todo поворот экрана: текущий фрагмент
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
 
+        checkAuth()
         initFields()
     }
 
     private fun initFields() {
-        presenter = LoginPresenterImpl().apply { setView(this@LoginActivity) }
+
     }
 
-    override fun setListeners() {
-        btn_enter.setOnClickListener {
-            presenter.btnEnterClicked(et_email.text.toString(), et_password.text.toString())
+    private fun checkAuth() {
+        //if true -> MainActivity
+        if (false) {
+            startActivity(Intent(this, MainActivity::class.java))
+        } else {
+            supportFragmentManager.beginTransaction()
+                .replace(R.id.container_login, AuthFragment.newInstance())
+                .commit()
         }
-        btn_registration.setOnClickListener { presenter.btnRegistrationClicked() }
-        btn_no_registration.setOnClickListener { presenter.btnNoRegistrationClicked() }
-
-        et_email.addTextChangedListener(EditTextWatcher {
-            //todo check not exist (?)
-        })
     }
 
-    override fun showToast(message: String) {
-        Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
+    override fun onBackPressed() {
+        super.onBackPressed()
+        supportFragmentManager.popBackStack()
     }
 }

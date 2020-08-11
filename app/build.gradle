@@ -29,18 +29,20 @@ ext {
     firebaseAuth = '19.3.2'
     firebaseAnalytics = '17.4.4'
     firebaseDB = '19.3.1'
+    lifecycle_version = "2.2.0"
 }
 
 dependencies {
     implementation fileTree(dir: "libs", include: ["*.jar"])
     implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
     //test
     testImplementation 'junit:junit:4.13'
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
     //android
     implementation 'androidx.core:core-ktx:1.3.1'
-    implementation 'androidx.appcompat:appcompat:1.1.0'
+    implementation 'androidx.appcompat:appcompat:1.2.0'
     implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
     implementation "com.google.android.material:material:$android_material"
     //kotlin
@@ -48,6 +50,9 @@ dependencies {
     implementation "com.google.firebase:firebase-analytics:${firebaseAnalytics}"
     implementation "com.google.firebase:firebase-auth-ktx:${firebaseAuth}"
     implementation "com.google.firebase:firebase-database-ktx:${firebaseDB}"
+    // Lifecycle
+    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycle_version"
+    implementation "androidx.lifecycle:lifecycle-livedata-ktx:$lifecycle_version"
     //other
 
 }

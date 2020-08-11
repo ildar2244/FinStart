@@ -10,5 +10,12 @@
     <dimen name="normalPadding">8dp</dimen>
     <dimen name="smallPadding">4dp</dimen>
 
-    <!-- -->
+    <!-- Base -->
+    <dimen name="action_view_height">32dp</dimen>
+
+    <!-- Login -->
+    <dimen name="login_edittext_height">@dimen/action_view_height</dimen>
+
+    <!-- Register -->
+    <dimen name="register_edittext_height">@dimen/action_view_height</dimen>
 </resources>
