@@ -1,4 +1,4 @@
-package ru.axdar.finstart.login
+package ru.axdar.finstart.screens.login
 
 class AuthPresenterImpl : IAuthPresenter {
 

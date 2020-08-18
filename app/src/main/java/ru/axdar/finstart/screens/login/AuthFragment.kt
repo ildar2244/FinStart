@@ -1,4 +1,4 @@
-package ru.axdar.finstart.login
+package ru.axdar.finstart.screens.login
 
 import android.graphics.Typeface
 import android.os.Build
@@ -9,6 +9,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.appcompat.widget.TooltipCompat
+import androidx.lifecycle.ViewModelProvider
 import kotlinx.android.synthetic.main.fragment_auth.*
 import ru.axdar.finstart.R
 import ru.axdar.finstart.utilits.EditTextWatcher
@@ -54,11 +56,15 @@ class AuthFragment : Fragment(), IAuthView {
         })
 
         //текст подсказки "анонимного" режима
-        iv_anonymously_tooltip.setOnLongClickListener {
+        iv_anonymously_tooltip.setOnClickListener {
             if (Build.VERSION.SDK_INT < Build.VERSION_CODES.O) {
                 Toast.makeText(activity, getString(R.string.tooltip_help_anonymously), Toast.LENGTH_SHORT).show()
+                TooltipCompat.setTooltipText(it, getString(R.string.tooltip_help_anonymously))
+            } else {
+                //it.tooltipText = getString(R.string.tooltip_help_anonymously)
+                //TooltipCompat.setTooltipText(it, getString(R.string.tooltip_help_anonymously))
+                Toast.makeText(activity, getString(R.string.tooltip_help_anonymously), Toast.LENGTH_SHORT).show()
             }
-            true
         }
     }
 
@@ -67,9 +73,6 @@ class AuthFragment : Fragment(), IAuthView {
     }
 
     override fun replaceToRegistrationFragment() {
-        activity?.supportFragmentManager?.beginTransaction()
-            ?.addToBackStack("registrationFragment")
-            ?.replace(R.id.container_login, RegistrationFragment.newInstance())
-            ?.commit()
+        (activity as LoginActivity).replaceFragment(RegistrationFragment.newInstance())
     }
 }
