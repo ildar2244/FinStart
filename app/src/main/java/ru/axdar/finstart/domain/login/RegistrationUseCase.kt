@@ -4,7 +4,7 @@ import ru.axdar.finstart.domain.UseCase
 import ru.axdar.finstart.utilits.Response
 
 class RegistrationUseCase(
-    private val repository: ILoginRepo
+    private val repository: IRegistration
 ) : UseCase<String, RegistrationUseCase.Params>() {
 
     data class Params(val email: String, val password: String, val name: String)

@@ -7,11 +7,10 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
-import kotlinx.android.synthetic.main.fragment_auth.*
 import kotlinx.android.synthetic.main.fragment_registration.*
 import ru.axdar.finstart.MainActivity
 import ru.axdar.finstart.R
-import ru.axdar.finstart.data.login.LoginRepository
+import ru.axdar.finstart.data.login.RegistrationRepository
 import ru.axdar.finstart.domain.login.RegistrationUseCase
 
 class RegistrationFragment : Fragment(), IRegistrationView {
@@ -33,7 +32,7 @@ class RegistrationFragment : Fragment(), IRegistrationView {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         presenter = RegistrationPresenterImpl(
-            RegistrationUseCase(LoginRepository())
+            RegistrationUseCase(RegistrationRepository())
         ).apply {
             setView(this@RegistrationFragment)
             initFields()

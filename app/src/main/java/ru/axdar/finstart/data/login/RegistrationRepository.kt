@@ -1,18 +1,14 @@
 package ru.axdar.finstart.data.login
 
 import android.util.Log
-import com.google.android.gms.tasks.Task
-import com.google.firebase.auth.AuthResult
-import com.google.firebase.auth.FirebaseAuthUserCollisionException
-import com.google.firebase.auth.FirebaseAuthWeakPasswordException
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.*
 import kotlinx.coroutines.tasks.await
-import ru.axdar.finstart.domain.login.ILoginRepo
+import ru.axdar.finstart.domain.login.IRegistration
 import ru.axdar.finstart.utilits.*
 
-class LoginRepository : ILoginRepo {
+class RegistrationRepository : IRegistration {
 
     override fun registrationUserWithEmailAndPassword(
         email: String, password: String, name: String
@@ -54,10 +50,6 @@ class LoginRepository : ILoginRepo {
                  }
             .addOnFailureListener { Log.d("9999", "saveInFirebaseDB: ELSE") }
         return Response.Success(true)
-    }
-
-    override fun authByEmailAndPassword(email: String, password: String) {
-        TODO("Not yet implemented")
     }
 
     @ExperimentalCoroutinesApi
