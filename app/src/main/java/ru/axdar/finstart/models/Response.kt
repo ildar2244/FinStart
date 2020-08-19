@@ -1,4 +1,4 @@
-package ru.axdar.finstart.utilits
+package ru.axdar.finstart.models
 
 sealed class Response<out T> {
 
@@ -8,7 +8,9 @@ sealed class Response<out T> {
 
     companion object {
         fun <T> loading() = Loading<T>()
-        fun <T> success(data: T): Response<T> = Success(data)
-        fun <T> error(e: T): Response<T> = Error(e)
+        fun <T> success(data: T): Response<T> =
+            Success(data)
+        fun <T> error(e: T): Response<T> =
+            Error(e)
     }
 }

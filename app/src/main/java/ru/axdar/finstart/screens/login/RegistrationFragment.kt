@@ -12,6 +12,7 @@ import ru.axdar.finstart.MainActivity
 import ru.axdar.finstart.R
 import ru.axdar.finstart.data.login.RegistrationRepository
 import ru.axdar.finstart.domain.login.RegistrationUseCase
+import ru.axdar.finstart.utilits.PrefsManager
 
 class RegistrationFragment : Fragment(), IRegistrationView {
 

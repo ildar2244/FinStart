@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import ru.axdar.finstart.MainActivity
 import ru.axdar.finstart.R
+import ru.axdar.finstart.utilits.PrefsManager
 import ru.axdar.finstart.utilits.initFirebase
 
 class LoginActivity : AppCompatActivity() {
@@ -17,31 +18,27 @@ class LoginActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
 
+        PrefsManager.init(this)
         initFirebase()
 
-        if (savedInstanceState != null) {
-            mFragment = supportFragmentManager.getFragment(savedInstanceState, stateFragment) ?:
-                    AuthFragment.newInstance()
+        //if PrefsManager.getAuthState() - true
+        if (PrefsManager.getAuthState()) {
+            startActivity(Intent(this, MainActivity::class.java))
+            finish()
         } else {
-            mFragment = AuthFragment.newInstance()
-            replaceFragment(mFragment)
+            if (savedInstanceState != null) {
+                mFragment = supportFragmentManager.getFragment(savedInstanceState, stateFragment)
+                    ?: AuthFragment.newInstance()
+            } else {
+                mFragment = AuthFragment.newInstance()
+                replaceFragment(mFragment)
+            }
         }
-        //checkAuth()
     }
 
     override fun onSaveInstanceState(outState: Bundle) {
         super.onSaveInstanceState(outState)
         supportFragmentManager.putFragment(outState, stateFragment, mFragment)
-    }
-
-    private fun checkAuth() {
-        //if true -> MainActivity
-        if (false) {
-            startActivity(Intent(this, MainActivity::class.java))
-        } else {
-            mFragment = AuthFragment.newInstance()
-            replaceFragment(mFragment)
-        }
     }
 
     override fun onBackPressed() {

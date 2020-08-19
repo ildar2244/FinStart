@@ -1,7 +1,7 @@
 package ru.axdar.finstart.domain
 
 import kotlinx.coroutines.*
-import ru.axdar.finstart.utilits.Response
+import ru.axdar.finstart.models.Response
 import kotlin.coroutines.CoroutineContext
 
 abstract class UseCase<out Type, in Params> {

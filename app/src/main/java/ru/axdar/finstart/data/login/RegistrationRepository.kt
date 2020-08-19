@@ -6,6 +6,8 @@ import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.*
 import kotlinx.coroutines.tasks.await
 import ru.axdar.finstart.domain.login.IRegistration
+import ru.axdar.finstart.utilits.PrefsManager
+import ru.axdar.finstart.models.Response
 import ru.axdar.finstart.utilits.*
 
 class RegistrationRepository : IRegistration {
@@ -52,6 +54,12 @@ class RegistrationRepository : IRegistration {
         return Response.Success(true)
     }
 
+    override fun saveAuthStateInLocal() {
+        //статус "Авторизован" в SharedPref
+        PrefsManager.saveAuthState(true)
+    }
+
+    //потом может пригодится
     @ExperimentalCoroutinesApi
     fun regFire(email: String, password: String, name: String) = flow<Response<String>> {
         emit(Response.loading())

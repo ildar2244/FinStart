@@ -1,7 +1,7 @@
 package ru.axdar.finstart.screens.login
 
 import ru.axdar.finstart.domain.login.RegistrationUseCase
-import ru.axdar.finstart.utilits.Response
+import ru.axdar.finstart.models.Response
 
 class RegistrationPresenterImpl(
     val useCase: RegistrationUseCase
