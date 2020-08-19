@@ -1,3 +1,16 @@
 <resources>
     <string name="app_name">FinStart</string>
+
+    <!-- Login -->
+    <string name="registration_title">Регистрация</string>
+    <string name="login_password_hint">Password</string>
+    <string name="login_email_hint">Email</string>
+    <string name="register_name_hint">Name</string>
+    <string name="register_email_hint">Email</string>
+    <string name="register_password_hint">Password</string>
+    <string name="register_confirm_password_hint">Confirm password</string>
+    <string name="tooltip_help_anonymously">Данные хранятся только на вашем устройстве</string>
+
+    <!--  -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

@@ -14,10 +14,15 @@
         android:id="@+id/menu_operation"
         android:enabled="true"
         android:icon="@drawable/ic_operation"
-        android:title="Сделки" />
+        android:title="Трансакции" />
     <item
         android:id="@+id/menu_ideas"
         android:enabled="true"
         android:icon="@drawable/ic_investidea"
         android:title="Идеи" />
+    <item
+        android:id="@+id/menu_planner"
+        android:enabled="true"
+        android:icon="@android:drawable/ic_menu_my_calendar"
+        android:title="Планер" />
 </menu>

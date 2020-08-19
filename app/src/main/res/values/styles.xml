@@ -7,4 +7,34 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <style name="mainToolbar">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">?attr/actionBarSize</item>
+        <item name="android:theme">@style/ThemeOverlay.AppCompat.Dark.ActionBar</item>
+        <item name="android:background">@color/colorPrimary</item>
+    </style>
+
+    <style name="edittext_default">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">@dimen/action_view_height</item>
+        <item name="android:paddingStart">@dimen/normalPadding</item>
+        <item name="android:textColorHint">@color/colorGrey</item>
+        <item name="android:textColor">@android:color/black</item>
+        <item name="android:textSize">@dimen/normalText</item>
+        <item name="android:maxLines">1</item>
+    </style>
+
+    <style name="loginEditText" parent="edittext_default">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_marginTop">@dimen/vertical_large_margin</item>
+        <item name="android:background">@drawable/background_edittext_stroke_primary</item>
+    </style>
+
+    <style name="registerEditText" parent="edittext_default">
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginTop">@dimen/vertical_large_margin</item>
+        <item name="android:layout_marginStart">@dimen/horizontal_margin</item>
+        <item name="android:layout_marginEnd">@dimen/horizontal_margin</item>
+    </style>
+
 </resources>

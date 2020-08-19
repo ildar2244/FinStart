@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".screens.login.RegistrationFragment">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar_registration"
+        style="@style/mainToolbar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:navigationIcon="@drawable/ic_arrow_back"
+        app:title="@string/registration_title" />
+
+    <EditText
+        android:id="@+id/et_register_name"
+        style="@style/registerEditText"
+        android:hint="@string/register_name_hint"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/toolbar_registration"
+        android:inputType="text"/>
+
+    <EditText
+        android:id="@+id/et_register_email"
+        style="@style/registerEditText"
+        android:hint="@string/register_email_hint"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/et_register_name"
+        android:inputType="textEmailAddress"/>
+
+    <EditText
+        android:id="@+id/et_register_password"
+        style="@style/registerEditText"
+        android:hint="@string/register_password_hint"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/et_register_email"
+        android:inputType="textPassword"/>
+
+    <EditText
+        android:id="@+id/et_register_password_confirm"
+        style="@style/registerEditText"
+        android:hint="@string/register_confirm_password_hint"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/et_register_password"
+        android:inputType="textPassword"/>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/btn_register_next"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/horizontal_margin"
+        android:backgroundTint="@color/colorPrimary"
+        app:backgroundTint="@color/colorPrimary"
+        android:src="@drawable/ic_btn_next"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="horizontal_margin">16dp</dimen>
+    <dimen name="vertical_margin">10dp</dimen>
+    <dimen name="vertical_large_margin">16dp</dimen>
+    <dimen name="largeText">16sp</dimen>
+    <dimen name="normalText">16sp</dimen>
+    <dimen name="smallText">14sp</dimen>
+    <dimen name="largePadding">12dp</dimen>
+    <dimen name="normalPadding">8dp</dimen>
+    <dimen name="smallPadding">4dp</dimen>
+
+    <!-- Base -->
+    <dimen name="action_view_height">32dp</dimen>
+
+    <!-- Login -->
+    <dimen name="login_edittext_height">@dimen/action_view_height</dimen>
+
+    <!-- Register -->
+    <dimen name="register_edittext_height">@dimen/action_view_height</dimen>
+</resources>
