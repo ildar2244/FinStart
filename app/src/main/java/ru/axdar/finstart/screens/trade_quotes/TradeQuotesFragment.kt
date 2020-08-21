@@ -5,30 +5,19 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.recyclerview.widget.DividerItemDecoration
+import androidx.recyclerview.widget.LinearLayoutManager
+import kotlinx.android.synthetic.main.fragment_trade_quotes.*
 import ru.axdar.finstart.R
+import ru.axdar.finstart.models.QuoteCurrency
+import ru.axdar.finstart.models.QuoteIndex
+import ru.axdar.finstart.screens.trade_quotes.adapters.QuoteDataAdapter
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
-
-/**
- * A simple [Fragment] subclass.
- * Use the [TradeQuotesFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
 class TradeQuotesFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
-    }
+    private lateinit var adapterDataIndexes: QuoteDataAdapter
+    private lateinit var adapterDataCurrency: QuoteDataAdapter
+    private lateinit var adapterDataWatchList: QuoteDataAdapter
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -39,22 +28,48 @@ class TradeQuotesFragment : Fragment() {
     }
 
     companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment TradeQuotesFragment.
-         */
-        // TODO: Rename and change types and number of parameters
         @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            TradeQuotesFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
-                }
-            }
+        fun newInstance() = TradeQuotesFragment()
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        val listIndexes = listOf(
+            QuoteIndex(1, "IMOEX", "11:48", 3054.56f, 0.1999f),
+            QuoteIndex(1, "RTSI", "11:48", 1316.32f, 0.3799f),
+            QuoteIndex(1, "S&P500", "19/08", 3361.44f, -0.4299f),
+            QuoteIndex(1, "Nasdaq", "19/08", 11146.46f, -0.5799f)
+        )
+        val listSecond = listOf(
+            QuoteCurrency(1, "eur/usd", "12:44", 1.1623f, 0.0029f),
+            QuoteCurrency(1, "usd/rub", "12:05", 73.32f, 0.0799f),
+            QuoteCurrency(1, "eur/rub", "01/08", 87.44f, -0.1299f)
+        )
+
+        val hm= mapOf("Индексы" to listIndexes, "Валюта" to listSecond)
+
+        //ИНДЕКСЫ
+        adapterDataIndexes = QuoteDataAdapter().apply {
+            addHeaderAndSubmitList("Индексы", listIndexes)
+            //addHeaderAndMap(hm)
+        }
+        rv_quotes_index.apply {
+            layoutManager =
+                LinearLayoutManager(requireActivity(), LinearLayoutManager.VERTICAL, false)
+            addItemDecoration(DividerItemDecoration(requireActivity(), LinearLayoutManager.VERTICAL))
+            adapter = adapterDataIndexes
+        }
+
+        //ВАЛЮТА
+        adapterDataCurrency = QuoteDataAdapter().apply {
+            addHeaderAndSubmitList("Валюта", listSecond)
+        }
+        rv_quotes_currency.apply {
+            layoutManager =
+                LinearLayoutManager(requireActivity(), LinearLayoutManager.VERTICAL, false)
+            addItemDecoration(DividerItemDecoration(requireActivity(), LinearLayoutManager.VERTICAL))
+            adapter = adapterDataCurrency
+        }
     }
 }
