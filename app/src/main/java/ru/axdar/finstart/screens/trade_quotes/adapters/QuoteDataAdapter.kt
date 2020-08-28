@@ -11,9 +11,11 @@ import kotlinx.coroutines.withContext
 import ru.axdar.finstart.models.QuoteCurrency
 import ru.axdar.finstart.models.QuoteData
 import ru.axdar.finstart.models.QuoteIndex
+import ru.axdar.finstart.models.QuoteTicker
 import ru.axdar.finstart.screens.trade_quotes.viewholders.CurrencyItemViewHolder
 import ru.axdar.finstart.screens.trade_quotes.viewholders.HeaderViewHolder
 import ru.axdar.finstart.screens.trade_quotes.viewholders.IndexItemViewHolder
+import ru.axdar.finstart.screens.trade_quotes.viewholders.QuoteDataItemViewHolder
 import java.lang.ClassCastException
 
 class QuoteDataAdapter : ListAdapter<QuoteItem, RecyclerView.ViewHolder>(QuoteDiffCallback()) {
@@ -63,6 +65,7 @@ class QuoteDataAdapter : ListAdapter<QuoteItem, RecyclerView.ViewHolder>(QuoteDi
             ITEM_VIEW_TYPE_HEADER -> HeaderViewHolder.from(parent)
             ITEM_VIEW_TYPE_ITEM_INDEX -> IndexItemViewHolder.from(parent)
             ITEM_VIEW_TYPE_ITEM_CURRENCY -> CurrencyItemViewHolder.from(parent)
+            ITEM_VIEW_TYPE_ITEM_WATCHLICT -> QuoteDataItemViewHolder.from(parent)
             else -> throw ClassCastException("Unknown viewType $viewType")
         }
     }
@@ -81,6 +84,10 @@ class QuoteDataAdapter : ListAdapter<QuoteItem, RecyclerView.ViewHolder>(QuoteDi
                 val itemData = getItem(position) as QuoteItem.ItemData
                 holder.bind(itemData.quoteData as QuoteCurrency)
             }
+            is QuoteDataItemViewHolder -> {
+                val itemData = getItem(position) as QuoteItem.ItemData
+                holder.bind(itemData.quoteData)
+            }
         }
     }
 
@@ -93,19 +100,11 @@ class QuoteDataAdapter : ListAdapter<QuoteItem, RecyclerView.ViewHolder>(QuoteDi
                 when(data.quoteData) {
                     is QuoteIndex -> ITEM_VIEW_TYPE_ITEM_INDEX
                     is QuoteCurrency -> ITEM_VIEW_TYPE_ITEM_CURRENCY
+                    is QuoteTicker -> ITEM_VIEW_TYPE_ITEM_WATCHLICT
                     else -> -1
                 }
             }
         }
-
-        /*return when(getItem(position)) {
-            is QuoteItem.Header -> ITEM_VIEW_TYPE_HEADER
-            is QuoteItem.ItemData -> when(mList[position-1]) {
-                is QuoteIndex -> ITEM_VIEW_TYPE_ITEM_INDEX
-                is QuoteCurrency -> ITEM_VIEW_TYPE_ITEM_CURRENCY
-                else -> -1
-            }
-        }*/
     }
 
 }
