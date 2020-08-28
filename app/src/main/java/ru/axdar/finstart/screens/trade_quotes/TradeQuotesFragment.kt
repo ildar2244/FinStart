@@ -1,60 +1,79 @@
 package ru.axdar.finstart.screens.trade_quotes
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.DividerItemDecoration
+import androidx.recyclerview.widget.LinearLayoutManager
+import kotlinx.android.synthetic.main.fragment_trade_quotes.*
 import ru.axdar.finstart.R
+import ru.axdar.finstart.screens.trade_quotes.adapters.QuoteDataAdapter
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
-
-/**
- * A simple [Fragment] subclass.
- * Use the [TradeQuotesFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
 class TradeQuotesFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
-    }
+    private lateinit var viewModel: TradeQuotesViewModel
+    private lateinit var adapterDataIndexes: QuoteDataAdapter
+    private lateinit var adapterDataCurrency: QuoteDataAdapter
+    private lateinit var adapterDataWatchList: QuoteDataAdapter
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
+        viewModel = ViewModelProvider(this).get(TradeQuotesViewModel::class.java)
         return inflater.inflate(R.layout.fragment_trade_quotes, container, false)
     }
 
     companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment TradeQuotesFragment.
-         */
-        // TODO: Rename and change types and number of parameters
         @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            TradeQuotesFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
-                }
-            }
+        fun newInstance() = TradeQuotesFragment()
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        //ИНДЕКСЫ
+        adapterDataIndexes = QuoteDataAdapter()
+        rv_quotes_index.apply {
+            layoutManager =
+                LinearLayoutManager(requireActivity(), LinearLayoutManager.VERTICAL, false)
+            addItemDecoration(DividerItemDecoration(requireActivity(), LinearLayoutManager.VERTICAL))
+            adapter = adapterDataIndexes
+        }
+
+        //ВАЛЮТА
+        adapterDataCurrency = QuoteDataAdapter()
+        rv_quotes_currency.apply {
+            layoutManager =
+                LinearLayoutManager(requireActivity(), LinearLayoutManager.VERTICAL, false)
+            addItemDecoration(DividerItemDecoration(requireActivity(), LinearLayoutManager.VERTICAL))
+            adapter = adapterDataCurrency
+        }
+
+        //WatchList
+        adapterDataWatchList = QuoteDataAdapter()
+        rv_quotes_watchlist.apply {
+            layoutManager =
+                LinearLayoutManager(requireActivity(), LinearLayoutManager.VERTICAL, false)
+            addItemDecoration(DividerItemDecoration(requireActivity(), LinearLayoutManager.VERTICAL))
+            adapter = adapterDataWatchList
+        }
+
+        viewModel.apply {
+            getQuotesIndexes().observe(this@TradeQuotesFragment, Observer {
+                adapterDataIndexes.addHeaderAndSubmitList("Индексы", it)
+            })
+            getQuotesCurrencies().observe(this@TradeQuotesFragment, Observer {
+                adapterDataCurrency.addHeaderAndSubmitList("Валюта", it)
+            })
+            getQuoteTickers().observe(this@TradeQuotesFragment, Observer {
+                adapterDataWatchList.addHeaderAndSubmitList("Избранное", it)
+            })
+        }
     }
 }

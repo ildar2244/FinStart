@@ -1,14 +1,48 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".screens.trade_quotes.TradeQuotesFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_quotes_index"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_height="wrap_content"
+        android:background="@drawable/bg_viewgroup_white_round"
+        android:layout_margin="8dp"
+        android:elevation="2dp"
+        android:overScrollMode="never"
+        tools:listitem="@layout/item_quote_index"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-</FrameLayout>
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_quotes_currency"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bg_viewgroup_white_round"
+        android:layout_margin="8dp"
+        android:elevation="2dp"
+        android:overScrollMode="never"
+        tools:listitem="@layout/item_quote_index"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/rv_quotes_index" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_quotes_watchlist"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bg_viewgroup_white_round"
+        android:layout_margin="8dp"
+        android:elevation="2dp"
+        android:overScrollMode="never"
+        tools:listitem="@layout/item_quote_index"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/rv_quotes_currency" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

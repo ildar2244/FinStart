@@ -3,26 +3,26 @@
     <item
         android:id="@+id/menu_quotes"
         android:enabled="true"
-        android:icon="@drawable/ic_trending"
+        android:icon="@drawable/ic_bm_quote"
         android:title="Курсы" />
     <item
         android:id="@+id/menu_portfolio"
         android:enabled="true"
-        android:icon="@drawable/ic_portfolio"
+        android:icon="@drawable/ic_bm_portfolio"
         android:title="Портфель" />
     <item
         android:id="@+id/menu_operation"
         android:enabled="true"
-        android:icon="@drawable/ic_operation"
+        android:icon="@drawable/ic_bm_add_transaction"
         android:title="Трансакции" />
     <item
         android:id="@+id/menu_ideas"
         android:enabled="true"
-        android:icon="@drawable/ic_investidea"
+        android:icon="@drawable/ic_bm_idea"
         android:title="Идеи" />
     <item
         android:id="@+id/menu_planner"
         android:enabled="true"
-        android:icon="@android:drawable/ic_menu_my_calendar"
+        android:icon="@drawable/ic_bm_planner"
         android:title="Планер" />
 </menu>
