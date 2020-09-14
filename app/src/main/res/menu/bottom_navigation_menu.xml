@@ -11,10 +11,10 @@
         android:icon="@drawable/ic_bm_portfolio"
         android:title="Портфель" />
     <item
-        android:id="@+id/menu_operation"
+        android:id="@+id/menu_transactions"
         android:enabled="true"
         android:icon="@drawable/ic_bm_add_transaction"
-        android:title="Трансакции" />
+        android:title="Транзакции" />
     <item
         android:id="@+id/menu_ideas"
         android:enabled="true"
