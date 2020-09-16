@@ -11,8 +11,8 @@ class ChartEquityProductVH(view: View) : RecyclerView.ViewHolder(view) {
     fun bind(equity: ChartEquityProduct) {
         itemView.apply {
             equity.color.let {
-                //tv_pf_part_color.setBackgroundColor(Color.parseColor(it))
-                tv_pf_part_color.setBgColor(it)
+                tv_pf_part_color.setBackgroundColor(Color.parseColor(it))
+                //tv_pf_part_color.setBgColor(it) //for CustomView
             }
             tv_pf_part_about.text = resources.getString(
                 R.string.portfolio_equity_product_about, equity.name, equity.dolya

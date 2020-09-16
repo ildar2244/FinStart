@@ -20,8 +20,8 @@
     <string name="portfolio_value_change">%d \u20BD</string>
     <string name="portfolio_equity_product_about">%s - доля %s%%</string>
     <string name="portfolio_equity_product_summa">%s \u20BD</string>
-    <string name="portfolio_equity_product_change_summa">%s \u20BD</string>
-    <string name="portfolio_equity_product_change_percent">\/ %s %%</string>
+    <string name="portfolio_equity_product_change_summa">\/ %s \u20BD</string>
+    <string name="portfolio_equity_product_change_percent">%s %%</string>
 
     <!-- Transactions -->
 
