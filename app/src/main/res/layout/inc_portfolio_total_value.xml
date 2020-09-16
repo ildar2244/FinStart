@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    tools:parentTag="androidx.constraintlayout.widget.ConstraintLayout">
+
+    <TextView
+        android:id="@+id/tv_portfolio_value"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/portfolio_value"
+        android:textColor="@android:color/black"
+        android:textSize="48sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="4 038 579" />
+
+    <TextView
+        android:id="@+id/tv_portfolio_value_currency"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:text="@string/portfolio_value_currency"
+        android:textColor="@android:color/black"
+        android:textSize="48sp"
+        app:layout_constraintBottom_toBottomOf="@id/tv_portfolio_value"
+        app:layout_constraintStart_toEndOf="@id/tv_portfolio_value"
+        app:layout_constraintTop_toTopOf="@id/tv_portfolio_value"
+        tools:text="R" />
+
+    <ImageView
+        android:id="@+id/iv_portfolio_eye_state"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_visibility"
+        app:layout_constraintBottom_toBottomOf="@id/tv_portfolio_value"
+        app:layout_constraintEnd_toStartOf="@id/tv_portfolio_value"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/tv_portfolio_value" />
+
+    <TextView
+        android:id="@+id/tv_portfolio_change_interval"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="4dp"
+        android:gravity="center"
+        android:textColor="@android:color/black"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="@id/tv_portfolio_value"
+        app:layout_constraintTop_toBottomOf="@id/tv_portfolio_value"
+        tools:text="/ месяц" />
+
+    <TextView
+        android:id="@+id/tv_portfolio_value_change"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:gravity="center"
+        android:text="@string/portfolio_value_change"
+        android:textColor="@android:color/holo_green_dark"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toStartOf="@id/tv_portfolio_change_interval"
+        app:layout_constraintTop_toBottomOf="@id/tv_portfolio_value"
+        tools:text="+ 203 640 R" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
