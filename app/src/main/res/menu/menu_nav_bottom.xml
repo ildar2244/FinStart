@@ -4,25 +4,25 @@
         android:id="@+id/menu_quotes"
         android:enabled="true"
         android:icon="@drawable/ic_bm_quote"
-        android:title="Курсы" />
+        android:title="@string/menu_quotes" />
     <item
         android:id="@+id/menu_portfolio"
         android:enabled="true"
         android:icon="@drawable/ic_bm_portfolio"
-        android:title="Портфель" />
+        android:title="@string/menu_portfolio" />
     <item
         android:id="@+id/menu_transactions"
         android:enabled="true"
         android:icon="@drawable/ic_bm_add_transaction"
-        android:title="Транзакции" />
+        android:title="@string/menu_transactions" />
     <item
         android:id="@+id/menu_ideas"
         android:enabled="true"
         android:icon="@drawable/ic_bm_idea"
-        android:title="Идеи" />
+        android:title="@string/menu_ideas" />
     <item
         android:id="@+id/menu_planner"
         android:enabled="true"
         android:icon="@drawable/ic_bm_planner"
-        android:title="Планер" />
+        android:title="@string/menu_planner" />
 </menu>
