@@ -3,10 +3,10 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
-    app:startDestination="@id/nav_quotes">
+    app:startDestination="@id/nav_alerts">
 
     <!-- Bottom View -->
-    <fragment
+    <!--<fragment
         android:id="@+id/nav_quotes"
         android:name="ru.axdar.finstart.screens.trade_quotes.TradeQuotesFragment"
         android:label="@string/menu_quotes"
@@ -20,7 +20,7 @@
         android:id="@+id/nav_transactions"
         android:name="ru.axdar.finstart.screens.transactions.TransactionsFragment"
         android:label="@string/menu_transactions"
-        tools:layout="@layout/fragment_transactions" />
+        tools:layout="@layout/fragment_transactions" />-->
 
     <!-- Drawer Layout -->
     <fragment
