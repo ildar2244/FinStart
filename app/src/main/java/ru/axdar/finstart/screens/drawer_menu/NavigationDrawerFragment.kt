@@ -27,6 +27,8 @@ import ru.axdar.finstart.screens.settings.SettingsFragment
 
 class NavigationDrawerFragment : Fragment() {
 
+    private lateinit var mActivity: AppCompatActivity
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -51,7 +53,7 @@ class NavigationDrawerFragment : Fragment() {
         val drawerLayout: CustomDrawerLayout = view.findViewById(R.id.drawer_layout)
         val navView: NavigationView = view.findViewById(R.id.nav_view)
 
-        val mActivity: AppCompatActivity = activity as AppCompatActivity
+        mActivity = activity as AppCompatActivity
         mActivity.setSupportActionBar(mToolbar)
         mActivity.supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
@@ -71,6 +73,7 @@ class NavigationDrawerFragment : Fragment() {
         //setupActionBarWithNavController(navController, appBarConfiguration)
         //navView.setupWithNavController(navController)
 
+        setTitleInToolbar(resources.getString(R.string.menu_alerts))
         navView.setNavigationItemSelectedListener {
             selectDrawerItem(it)
             drawerLayout.closeDrawer(GravityCompat.START)
@@ -89,17 +92,25 @@ class NavigationDrawerFragment : Fragment() {
         }
     }
 
+    private fun setTitleInToolbar(name: String) {
+        mActivity.supportActionBar?.title = name
+    }
+
     //выбор из выдвижной панели
     private fun selectDrawerItem(menuItem: MenuItem) {
         when (menuItem.itemId) {
             R.id.menu_alerts -> {
                 childFragmentManager.beginTransaction().replace(R.id.nav_host_fragment, AlertsFragment()).commit()
+                setTitleInToolbar(resources.getString(R.string.menu_alerts))
             }
             R.id.menu_settings -> {
                 childFragmentManager.beginTransaction().replace(R.id.nav_host_fragment, SettingsFragment()).commit()
+                setTitleInToolbar(resources.getString(R.string.menu_settings))
             }
             R.id.menu_share -> { Toast.makeText(requireContext(), "SHARE", Toast.LENGTH_SHORT).show() }
-            R.id.menu_send -> { Toast.makeText(requireContext(), "SEND", Toast.LENGTH_SHORT).show() }
+            R.id.menu_send -> {
+                Toast.makeText(requireContext(), "SEND", Toast.LENGTH_SHORT).show()
+            }
         }
     }
 }

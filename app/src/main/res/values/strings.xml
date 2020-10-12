@@ -15,6 +15,7 @@
     <string name="quote_index_change">%s%%</string>
 
     <!-- Portfolio -->
+    <string name="portfolio_title">Портфель</string>
     <string name="portfolio_value">%s</string>
     <string name="portfolio_value_currency">\u20BD</string>
     <string name="portfolio_value_change">%d \u20BD</string>
@@ -23,11 +24,14 @@
     <string name="portfolio_equity_product_change_summa">\/ %s \u20BD</string>
     <string name="portfolio_equity_product_change_percent">%s %%</string>
 
-    <!-- Transactions -->
+    <!-- Transactions //Транзакции -->
+    <string name="transactions_title">Операции</string>
 
     <!-- InvestIdeas -->
+    <string name="ideas_title">Инвест Идеи</string>
 
     <!-- Planer -->
+    <string name="planer_title">Планер</string>
 
     <!-- Bottom View -->
     <string name="menu_quotes">Курсы</string>

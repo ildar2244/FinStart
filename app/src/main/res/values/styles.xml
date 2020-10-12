@@ -17,6 +17,13 @@
         <item name="android:background">@color/colorPrimary</item>
     </style>
 
+    <style name="AppBarDrawerLayout" parent="Widget.AppCompat.ActionBar">
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="elevation">0dp</item>
+        <item name="titleTextColor">@color/colorGrey</item>
+        <item name="colorPrimary">@android:color/transparent</item>
+    </style>
+
     <style name="edittext_default">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">@dimen/action_view_height</item>
