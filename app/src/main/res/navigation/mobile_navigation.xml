@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@id/nav_alerts">
+
+    <!-- Bottom View -->
+    <!--<fragment
+        android:id="@+id/nav_quotes"
+        android:name="ru.axdar.finstart.screens.trade_quotes.TradeQuotesFragment"
+        android:label="@string/menu_quotes"
+        tools:layout="@layout/fragment_trade_quotes" />
+    <fragment
+        android:id="@+id/nav_portfolio"
+        android:name="ru.axdar.finstart.screens.portfolio.PortfolioFragment"
+        android:label="@string/menu_portfolio"
+        tools:layout="@layout/fragment_trade_quotes" />
+    <fragment
+        android:id="@+id/nav_transactions"
+        android:name="ru.axdar.finstart.screens.transactions.TransactionsFragment"
+        android:label="@string/menu_transactions"
+        tools:layout="@layout/fragment_transactions" />-->
+
+    <!-- Drawer Layout -->
+    <fragment
+        android:id="@+id/nav_alerts"
+        android:name="ru.axdar.finstart.screens.alerts.AlertsFragment"
+        android:label="@string/menu_alerts"
+        tools:layout="@layout/fragment_alerts" />
+    <fragment
+        android:id="@+id/nav_settings"
+        android:name="ru.axdar.finstart.screens.settings.SettingsFragment"
+        android:label="@string/menu_settings" />
+
+</navigation>

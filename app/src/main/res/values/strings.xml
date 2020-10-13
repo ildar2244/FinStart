@@ -15,6 +15,7 @@
     <string name="quote_index_change">%s%%</string>
 
     <!-- Portfolio -->
+    <string name="portfolio_title">Портфель</string>
     <string name="portfolio_value">%s</string>
     <string name="portfolio_value_currency">\u20BD</string>
     <string name="portfolio_value_change">%d \u20BD</string>
@@ -23,11 +24,47 @@
     <string name="portfolio_equity_product_change_summa">\/ %s \u20BD</string>
     <string name="portfolio_equity_product_change_percent">%s %%</string>
 
-    <!-- Transactions -->
+    <!-- Transactions //Транзакции -->
+    <string name="transactions_title">Операции</string>
 
     <!-- InvestIdeas -->
+    <string name="ideas_title">Инвест Идеи</string>
 
     <!-- Planer -->
+    <string name="planer_title">Планер</string>
+
+    <!-- Bottom View -->
+    <string name="menu_quotes">Курсы</string>
+    <string name="menu_portfolio">Портфель</string>
+    <string name="menu_transactions">Транзакции</string>
+    <string name="menu_ideas">Идеи</string>
+    <string name="menu_planner">Планер</string>
+    <string name="menu_last_item">DOP</string>
+
+    <!-- Drawer Layout -->
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="menu_communication">Коммуникация</string>
+    <string name="menu_alerts">Уведомления</string>
+    <string name="menu_settings">Настройки</string>
+    <string name="menu_share">Поделиться</string>
+    <string name="menu_send">Написать</string>
+    <string name="drawer_open">Open</string>
+    <string name="drawer_close">Close</string>
+
+    <!-- Preference Titles -->
+    <string name="messages_header">Messages</string>
+    <string name="sync_header">Sync</string>
+
+    <!-- Messages Preferences -->
+    <string name="signature_title">Your signature</string>
+    <string name="reply_title">Default reply action</string>
+
+    <!-- Sync Preferences -->
+    <string name="sync_title">Sync email periodically</string>
+    <string name="attachment_title">Download incoming attachments</string>
+    <string name="attachment_summary_on">Automatically download attachments for incoming emails</string>
+    <string name="attachment_summary_off">Only download attachments when manually requested</string>
+
     <!--  -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
