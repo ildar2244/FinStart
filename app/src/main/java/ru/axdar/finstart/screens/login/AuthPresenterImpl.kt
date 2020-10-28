@@ -1,8 +1,11 @@
 package ru.axdar.finstart.screens.login
 
-import ru.axdar.finstart.utilits.AUTH
+import ru.axdar.finstart.domain.login.AuthUseCase
+import ru.axdar.finstart.models.Response
 
-class AuthPresenterImpl : IAuthPresenter {
+class AuthPresenterImpl(
+    val useCase: AuthUseCase
+) : IAuthPresenter {
 
     private lateinit var view: IAuthView
 
@@ -15,14 +18,12 @@ class AuthPresenterImpl : IAuthPresenter {
         if (email.isNotEmpty() && password.isNotEmpty()) {
             view.hideKeyboard()
             //check in FB/DB
-            AUTH.signInWithEmailAndPassword(email, password)
-                .addOnCompleteListener { task ->
-                    if (task.isSuccessful) {
-                        view.replaceToMainActivity()
-                    } else {
-                        view.showToast("Auth error: ${task.exception?.message}")
-                    }
+            useCase(AuthUseCase.Params(email, password)) {
+                when (it) {
+                    is Response.Success -> view.replaceToMainActivity()
+                    is Response.Error -> view.showToast("Auth error: ${it.exception}")
                 }
+            }
         } else {
             view.showToast("Input values does not can to be empty")
         }

@@ -16,6 +16,8 @@ import androidx.lifecycle.ViewModelProvider
 import kotlinx.android.synthetic.main.fragment_auth.*
 import ru.axdar.finstart.MainActivity
 import ru.axdar.finstart.R
+import ru.axdar.finstart.data.login.AuthRepository
+import ru.axdar.finstart.domain.login.AuthUseCase
 import ru.axdar.finstart.utilits.EditTextWatcher
 
 class AuthFragment : Fragment(), IAuthView {
@@ -40,7 +42,9 @@ class AuthFragment : Fragment(), IAuthView {
     }
 
     private fun initFields() {
-        presenter = AuthPresenterImpl().apply { setView(this@AuthFragment) }
+        presenter = AuthPresenterImpl(
+            AuthUseCase(AuthRepository())
+        ).apply { setView(this@AuthFragment) }
 
         //шрифт логотипа
         val typeface = Typeface.createFromAsset(activity?.assets, "fonts/campusOltSh.ttf")
