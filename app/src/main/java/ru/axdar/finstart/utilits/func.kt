@@ -1,12 +1,13 @@
 package ru.axdar.finstart.utilits
 
+import android.app.Activity
 import android.content.Context
 import android.content.Intent
 import android.view.inputmethod.InputMethodManager
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 
-fun hideKeyboard(activity: AppCompatActivity) {
+fun hideKeyboard(activity: Activity) {
     val imm: InputMethodManager = activity.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
     imm.hideSoftInputFromWindow(activity.window.decorView.windowToken, 0)
 }
