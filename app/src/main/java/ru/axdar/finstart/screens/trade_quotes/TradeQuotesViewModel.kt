@@ -1,14 +1,23 @@
 package ru.axdar.finstart.screens.trade_quotes
 
+import android.app.Application
 import android.util.Log
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
+import androidx.lifecycle.*
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.flow.map
+import kotlinx.coroutines.launch
+import ru.axdar.finstart.data.AppDatabase
+import ru.axdar.finstart.data.trade_quotes.ShareQuoteDao
+import ru.axdar.finstart.data.trade_quotes.ShareQuoteFromMoex
+import ru.axdar.finstart.data.trade_quotes.ShareQuoteRepository
 import ru.axdar.finstart.models.QuoteCurrency
 import ru.axdar.finstart.models.QuoteIndex
 import ru.axdar.finstart.models.QuoteTicker
 
-class TradeQuotesViewModel : ViewModel() {
+class TradeQuotesViewModel(application: Application) : AndroidViewModel(application) {
+
+    private val sharesQuotes: LiveData<List<QuoteTicker>>
+
     //Fake data
     private val listIndexes = listOf(
         QuoteIndex(1, "IMOEX", "11:48", 3054.56f, 0.1999f),
@@ -33,7 +42,20 @@ class TradeQuotesViewModel : ViewModel() {
     private val quotesTickers = MutableLiveData<List<QuoteTicker>>()
 
     init {
-        initializeQuotes()
+        //initializeQuotes()
+        val shareDao = AppDatabase.getDatabase(application, viewModelScope).shareQuoteDao()
+        Log.d("9999_flow", "VM:$shareDao")
+        val repository = ShareQuoteRepository(shareDao)
+        //sharesQuotes = repository.favoriteSharesFlow
+        /*sharesQuotes = repository.favoriteSharesFlow.map {
+            val ml = mutableListOf<QuoteTicker>()
+            it.forEach { moex -> ml.add(
+                QuoteTicker(88, moex.ticker, "date", moex.lastTransactionPrice, 0.01f)
+            ) }
+            ml.toList()
+        }.asLiveData(Dispatchers.Main + viewModelScope.coroutineContext)*/
+
+        sharesQuotes = repository.favoriteSharesFlow().asLiveData(Dispatchers.Main + viewModelScope.coroutineContext)
     }
 
     fun getQuotesIndexes(): LiveData<List<QuoteIndex>> = quotesIndexes
@@ -42,10 +64,15 @@ class TradeQuotesViewModel : ViewModel() {
 
     fun getQuoteTickers(): LiveData<List<QuoteTicker>> = quotesTickers
 
+    fun getQuoteShares(): LiveData<List<QuoteTicker>> {
+        Log.d("9999", "getQuoteShares: $sharesQuotes")
+        return sharesQuotes
+    }
+
     private fun initializeQuotes() {
         quotesIndexes.value = listIndexes
         quotesCurrencies.value = listCurrency
-        quotesTickers.value = listTickers
+        //quotesTickers.value = listTickers
     }
 
 }
